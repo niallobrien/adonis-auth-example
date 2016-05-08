@@ -1,0 +1,15 @@
+{% extends 'master' %}
+
+{% block content %}
+  <h1>Index {{ loggedIn }}</h1>
+  {{ form.open({action: 'SessionController.destroy' }) }}
+  {{ csrfField }}
+  {{ form.input('submit', 'Log out') }}
+  {{ form.close() }}
+  <ul>
+    {% for issue in issues %}
+      <li>Assigned to: {{ issue.assigned_to }}</li>
+    {% endfor %}
+    {{ issues | json }}
+  </ul>
+{% endblock %}

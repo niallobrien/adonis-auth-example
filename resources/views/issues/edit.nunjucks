@@ -1,0 +1,12 @@
+{% extends 'master' %}
+
+{% block content %}
+  <h1>Edit form</h1>
+  <h2>Issue assigned to:</h2>
+  {#{{ form.open({action: 'IssuesController.update', method: 'PUT', params: {id: 1} }) }}#}
+  {{ form.open({action: 'IssuesController.update', params: {'id': issue.id} }) }}
+  {{ csrfField }}
+  {{ form.input('text', 'assigned_to') }}
+  {{ form.input('submit', 'submit') }}
+  {{ form.close() }}
+{% endblock %}

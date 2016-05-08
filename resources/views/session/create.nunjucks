@@ -1,0 +1,15 @@
+{% extends 'master' %}
+
+{% block content %}
+  <h1>Sign In</h1>
+  {% for key, message in flashMessages %}
+    {{ message }}
+  {% endfor %}
+  {#{{ form.open({action: 'IssuesController.update', method: 'PUT', params: {id: 1} }) }}#}
+  {{ form.open({url: '/signin', method: 'POST'}) }}
+  {{ csrfField }}
+  {{ form.text('email', old('email')) }}
+  {{ form.password('password', old('password')) }}
+  {{ form.submit('submit') }}
+  {{ form.close() }}
+{% endblock %}

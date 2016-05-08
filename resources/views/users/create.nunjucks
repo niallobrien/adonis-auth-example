@@ -1,0 +1,12 @@
+{% extends 'master' %}
+
+{% block content %}
+  <h1>New user</h1>
+  {#{{ form.open({action: 'IssuesController.update', method: 'PUT', params: {id: 1} }) }}#}
+  {{ form.open({url: '/signup', method: 'POST'}) }}
+  {{ csrfField }}
+  {{ form.input('text', 'email') }}
+  {{ form.input('password', 'password') }}
+  {{ form.input('submit', 'submit') }}
+  {{ form.close() }}
+{% endblock %}
