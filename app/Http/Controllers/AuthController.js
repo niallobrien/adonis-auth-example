@@ -14,10 +14,12 @@ class AuthController {
 
   // Store the resource
   * register(request, response) {
-    //
+    const name = request.input('name')
     const email = request.input('email')
     const password = request.input('password')
+
     let user = yield User.findBy('email', email)
+
     if (!user) {
       // create user
       user = new User()

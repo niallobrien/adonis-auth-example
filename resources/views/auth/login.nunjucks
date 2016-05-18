@@ -9,14 +9,14 @@
           <div class="panel-body">
             {{ form.open({url: '/login', method: 'post', class: 'form-horizontal', role: 'form'}) }}
             {{ csrfField }}
-            <div class="form-group {{ 'has-error' if flashHas('email') else '' }}">
+            <div class="form-group {{ 'has-error' if old('email') }}">
               {{ form.label('E-Mail Address', '', {class: 'col-md-4 control-label'}) }}
               <div class="col-md-6">
                 {{ form.email('email', old('email'), {class: 'form-control'}) }}
               </div>
             </div>
 
-            <div class="form-group {{ 'has-error' if flashHas('password') else '' }}">
+            <div class="form-group {{ 'has-error' if old('password') }}">
               <label class="col-md-4 control-label">Password</label>
               <div class="col-md-6">
                 <input type="password" class="form-control" name="password">
