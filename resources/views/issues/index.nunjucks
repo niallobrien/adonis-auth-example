@@ -1,8 +1,8 @@
-{% extends 'master' %}
+{% extends 'layouts.app' %}
 
 {% block content %}
   <h1>Index {{ loggedIn }}</h1>
-  {{ form.open({action: 'SessionController.destroy' }) }}
+  {{ form.open({action: 'AuthController.logout', method:'delete' }) }}
   {{ csrfField }}
   {{ form.input('submit', 'Log out') }}
   {{ form.close() }}

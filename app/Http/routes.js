@@ -19,12 +19,12 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.get('/signup', 'UsersController.create').as('signup')
-Route.post('/signup', 'UsersController.store')
+Route.get('/register', 'AuthController.showRegistrationForm').as('register')
+Route.post('/register', 'AuthController.register').as('register')
 
-Route.get('/signin', 'SessionController.create').as('signin')
-Route.post('/signin', 'SessionController.store')
-Route.delete('/signout', 'SessionController.destroy')
+Route.get('/login', 'AuthController.showLoginForm').as('login')
+Route.post('/login', 'AuthController.login')
+Route.delete('/logout', 'AuthController.logout')
 
 Route.group('admin', () => {
   Route.resource('issues', 'IssuesController')
